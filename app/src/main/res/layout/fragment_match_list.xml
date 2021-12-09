@@ -29,7 +29,7 @@
 <!--            android:visibility="@{vm.loading ? View.VISIBLE : View.GONE}"/>-->
 
         <com.airbnb.lottie.LottieAnimationView
-            android:id="@+id/lav_begin_soon_anim"
+            android:id="@+id/lav_progress_anim"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

@@ -25,7 +25,6 @@ class LeagueInfoFragment : BaseFragment<FragmentLeagueInfoBinding>() {
         initData()
         getExtraData()
         viewModel.getDetailLeague()
-
     }
 
     private fun getExtraData() {
@@ -35,7 +34,6 @@ class LeagueInfoFragment : BaseFragment<FragmentLeagueInfoBinding>() {
     private fun initData() {
         binding.vm = viewModel
         viewModel.uiEvent.observe(viewLifecycleOwner, onUiEvent())
-
     }
 
     override fun onUiEvent()= Observer<UIEvent<Int>> {

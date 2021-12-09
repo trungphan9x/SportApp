@@ -2,6 +2,7 @@ package us.reachmobi.sportapp.ui.fragment.search
 
 import android.os.Bundle
 import android.view.View
+import android.widget.ImageView
 import android.widget.SearchView
 import androidx.lifecycle.Observer
 import org.koin.android.viewmodel.ext.android.sharedViewModel
@@ -13,6 +14,7 @@ import us.reachmobi.sportapp.databinding.FragmentSearchBinding
 import us.reachmobi.sportapp.ui.activity.MainViewModel
 import us.reachmobi.sportapp.ui.rvadapter.TeamRVAdapter
 import us.reachmobi.sportapp.util.UIEvent
+import us.reachmobi.sportapp.util.extension.gone
 
 class SearchFragment : BaseFragment<FragmentSearchBinding>(), SearchView.OnQueryTextListener {
 
@@ -44,6 +46,11 @@ class SearchFragment : BaseFragment<FragmentSearchBinding>(), SearchView.OnQuery
             isIconified = false
 //            requestFocusFromTouch()
             setOnQueryTextListener(this@SearchFragment)
+            setOnCloseListener {
+                adapter.submitList(emptyList())
+                viewModel.isRvReady.set(false)
+                false
+            }
         }
 
     }

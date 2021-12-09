@@ -1,5 +1,6 @@
 package us.reachmobi.sportapp.ui.fragment.search
 
+import androidx.databinding.ObservableBoolean
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.launch
 import us.reachmobi.sportapp.base.BaseViewModel
@@ -11,6 +12,8 @@ import us.reachmobi.sportapp.util.ERROR
 import us.reachmobi.sportapp.util.UIEvent
 
 class SearchViewModel(private val remoteRepository: RemoteRepository) : BaseViewModel() {
+
+    val isRvReady = ObservableBoolean(false)
 
     fun getMatchesWithSearch(keyword: String) {
         viewModelScope.launch {
@@ -41,8 +44,10 @@ class SearchViewModel(private val remoteRepository: RemoteRepository) : BaseView
             loading.set(true)
             remoteRepository.searchTeams(keyword).let {
                 when (it.status) {
-                    Status.SUCCESS -> _uiEvent.postValue(UIEvent(UPDATE_RV_TEAMS_SEARCH,
-                        it.data))
+                    Status.SUCCESS -> {
+                        _uiEvent.postValue(UIEvent(UPDATE_RV_TEAMS_SEARCH, it.data))
+                        isRvReady.set(true)
+                    }
                     Status.ERROR -> _error.postValue(UIEvent(ERROR, it.message))
                 }
                 loading.set(false)

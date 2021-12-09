@@ -27,6 +27,8 @@ class MatchViewModel(private val remoteRepository: RemoteRepository) : BaseViewM
             remoteRepository.getLastMatchByLeagueId(matchId).let {
                 when (it.status) {
                     Status.SUCCESS -> {
+                        _uiEvent.postValue(UIEvent(UPDATE_RV_MATCHES, it.data))
+                        loading.set(false)
                         it.data?.events?.forEach { event ->
                             remoteRepository.getTeamDetailByTeamId(event.idHomeTeam).let {
                                 event.strHomeTeamBadge = it.data?.teams?.get(0)?.strTeamBadge ?: ""
@@ -37,7 +39,6 @@ class MatchViewModel(private val remoteRepository: RemoteRepository) : BaseViewM
                             }
                         }
                         _uiEvent.postValue(UIEvent(UPDATE_RV_MATCHES, it.data))
-                        loading.set(false)
                     }
                     Status.ERROR -> _error.postValue(UIEvent(ERROR,it.message))
                 }
@@ -51,6 +52,8 @@ class MatchViewModel(private val remoteRepository: RemoteRepository) : BaseViewM
             remoteRepository.getNextMatchByLeagueId(matchId).let {
                 when (it.status) {
                     Status.SUCCESS -> {
+                        _uiEvent.postValue(UIEvent(UPDATE_RV_MATCHES, it.data))
+                        loading.set(false)
                         it.data?.events?.forEach { event ->
                             remoteRepository.getTeamDetailByTeamId(event.idHomeTeam).let {
                                 event.strHomeTeamBadge = it.data?.teams?.get(0)?.strTeamBadge ?: ""
@@ -61,7 +64,6 @@ class MatchViewModel(private val remoteRepository: RemoteRepository) : BaseViewM
                             }
                         }
                         _uiEvent.postValue(UIEvent(UPDATE_RV_MATCHES, it.data))
-                        loading.set(false)
                     }
                     Status.ERROR -> _error.postValue(UIEvent(ERROR,it.message))
                 }

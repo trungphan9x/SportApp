@@ -35,6 +35,7 @@ class LeagueDetailFragment : BaseFragment<FragmentLeagueDetailBinding>() {
         binding.vm = viewModel
         binding.mainVM = mainVM
         viewModel.uiEvent.observe(viewLifecycleOwner, onUiEvent())
+        binding.ctLayout.setExpandedTitleTextAppearance(R.style.expandedToolbarLayoutTitleColor)
     }
 
     private fun getExtraData() {

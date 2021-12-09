@@ -43,6 +43,7 @@ fun ImageView.setUrlImage(url: String?) {
         .load(url)
         .centerCrop()
         .fitCenter()
+        .placeholder(R.drawable.default_image)
         .into(this)
 }
 

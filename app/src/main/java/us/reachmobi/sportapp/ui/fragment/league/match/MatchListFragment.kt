@@ -18,7 +18,7 @@ class MatchListFragment : BaseFragment<FragmentMatchListBinding>() {
 
     private val viewModel: MatchViewModel by viewModel()
     private val mainVM: MainViewModel by sharedViewModel()
-    private val adapter = MatchRVAdapter()
+    private val adapter = MatchRVAdapter(emptyList())
 
     override fun layoutResId() = R.layout.fragment_match_list
 
@@ -61,11 +61,11 @@ class MatchListFragment : BaseFragment<FragmentMatchListBinding>() {
             when(it.first) {
                 UPDATE_RV_MATCHES -> {
                     (it.second as? Events)?.let {
-                        adapter.submitList(it.events)
+                        adapter.setData(it.events ?: emptyList())
                     }
 
                     (it.second as? SearchEvents)?.let {
-                        adapter.submitList(it.event)
+                        adapter.setData(it.event ?: emptyList())
                     }
                 }
             }
