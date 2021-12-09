@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="event"
+            type="us.reachmobi.sportapp.data.model.Event" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:background="@color/background_gray_color"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="3dp"
+        app:cardMaxElevation="5dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true"
+        android:foreground="?attr/selectableItemBackground">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_vertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.5" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.5" />
+
+
+            <TextView
+                android:id="@+id/tv_match_title"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:maxLines="1"
+                tools:text="@string/example_match_title"
+                android:textAppearance="?attr/textAppearanceListItem"
+                android:textSize="@dimen/font_large_dp"
+                android:fontFamily="@font/roboto_medium"
+                android:textColor="@color/gray"
+                android:text="@{event.strEvent}"/>
+
+            <TextView
+                android:id="@+id/tv_match_date"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                tools:text="@string/example_date_time"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_match_title"
+                app:layout_constraintBottom_toTopOf="@+id/guideline_horizontal"
+                android:textAlignment="center"
+                android:textSize="12sp"
+                android:text=""
+                time="@{event.strTime}"
+                dateEvent="@{event.dateEvent}"
+                />
+
+            <ImageView
+                android:id="@+id/iv_badge_home"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:padding="@dimen/spacing_small"
+                setUrlImage="@{event.strHomeTeamBadge}"
+                app:layout_constraintEnd_toStartOf="@+id/tv_match_date"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/tv_match_title"
+                tools:src="@drawable/example_logo_league" />
+
+            <ImageView
+                android:id="@+id/iv_badge_away"
+                android:layout_width="0dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="@dimen/spacing_small"
+                android:padding="@dimen/spacing_small"
+                setUrlImage="@{event.strAwayTeamBadge}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_match_date"
+                app:layout_constraintTop_toBottomOf="@+id/tv_match_title"
+                tools:src="@drawable/example_logo_league" />
+
+            <TextView
+                android:id="@+id/tv_home_team_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                tools:text="@string/example_home_team"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:text="@{event.strHomeTeam}"
+                app:layout_constraintTop_toBottomOf="@+id/iv_badge_home"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/tv_match_date"
+                app:layout_constraintBottom_toBottomOf="parent" />
+
+            <TextView
+                android:id="@+id/tv_away_team_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:textAlignment="center"
+                android:textStyle="bold"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:layout_marginStart="@dimen/spacing_small"
+                android:layout_marginEnd="@dimen/spacing_small"
+                android:text="@{event.strAwayTeam}"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/tv_match_date"
+                app:layout_constraintTop_toBottomOf="@+id/iv_badge_away"
+                tools:text="@string/example_away_team" />
+
+            <TextView
+                android:id="@+id/tv_colon"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=":"
+                android:textSize="36sp"
+                app:layout_constraintTop_toTopOf="@+id/guideline_horizontal"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:gravity="top" />
+
+            <TextView
+                android:id="@+id/tv_score_home"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:text="@{event.intHomeScore == null || event.intHomeScore == `` ? `-` : event.intHomeScore}"
+                android:layout_marginEnd="@dimen/font_normal_dp"
+                android:textSize="36sp"
+                tools:text="@string/example_score"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_colon"
+                app:layout_constraintEnd_toStartOf="@+id/tv_colon"
+                app:layout_constraintTop_toTopOf="@+id/guideline_horizontal" />
+
+            <TextView
+                android:id="@+id/tv_score_away"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="top"
+                android:textSize="36sp"
+                tools:text="@string/example_score"
+                android:text="@{event.intAwayScore == null || event.intAwayScore == `` ? `-` : event.intAwayScore}"
+                android:layout_marginStart="@dimen/font_normal_dp"
+                app:layout_constraintBottom_toBottomOf="@+id/tv_colon"
+                app:layout_constraintStart_toEndOf="@+id/tv_colon"
+                app:layout_constraintTop_toTopOf="@+id/guideline_horizontal" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

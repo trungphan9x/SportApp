@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.36666666666666664" />
+        <entry key="app/src/main/res/drawable-v24/appbar_scrim.xml" value="0.253125" />
+        <entry key="app/src/main/res/drawable-v24/ic_back.xml" value="0.24635416666666668" />
+        <entry key="app/src/main/res/drawable-v24/round_button.xml" value="0.26197916666666665" />
+        <entry key="app/src/main/res/drawable-v24/round_button_gray.xml" value="0.3020833333333333" />
+        <entry key="app/src/main/res/drawable-v24/round_button_white.xml" value="0.3020833333333333" />
+        <entry key="app/src/main/res/drawable/border_background.xml" value="0.253125" />
+        <entry key="app/src/main/res/drawable/border_shadow_background.xml" value="0.253125" />
+        <entry key="app/src/main/res/layout/action_bar_main_activity.xml" value="0.33" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.37956694208344893" />
+        <entry key="app/src/main/res/layout/fragment_league_detail.xml" value="0.25833333333333336" />
+        <entry key="app/src/main/res/layout/fragment_league_info.xml" value="0.25833333333333336" />
+        <entry key="app/src/main/res/layout/fragment_match.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/layout/fragment_match_list.xml" value="0.4036458333333333" />
+        <entry key="app/src/main/res/layout/fragment_scrolling.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/layout/fragment_search.xml" value="0.21510416666666668" />
+        <entry key="app/src/main/res/layout/fragment_team_detail.xml" value="0.21510416666666668" />
+        <entry key="app/src/main/res/layout/fragment_team_list.xml" value="0.23020833333333332" />
+        <entry key="app/src/main/res/layout/item_league.xml" value="0.3867079878585382" />
+        <entry key="app/src/main/res/layout/item_match.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/item_player.xml" value="0.49577464788732395" />
+        <entry key="app/src/main/res/layout/item_team.xml" value="0.33" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_X" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

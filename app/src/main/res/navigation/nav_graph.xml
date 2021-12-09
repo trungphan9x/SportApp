@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="us.reachmobi.sportapp.ui.fragment.home.HomeFragment"
+        android:label="HomeFragment" >
+        <action
+            android:id="@+id/action_homeFragment_to_leagueDetailFragment"
+            app:destination="@id/leagueDetailFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/leagueDetailFragment"
+        android:name="us.reachmobi.sportapp.ui.fragment.league.LeagueDetailFragment"
+        android:label="LeagueDetailFragment" >
+
+
+        <action
+            android:id="@+id/action_leagueDetailFragment_to_searchFragment"
+            app:destination="@id/searchFragment" />
+        <argument
+            android:name="league"
+            app:argType="us.reachmobi.sportapp.data.model.League"
+            app:nullable="true"
+            android:defaultValue="@null" />
+    </fragment>
+    <fragment
+        android:id="@+id/searchFragment"
+        android:name="us.reachmobi.sportapp.ui.fragment.search.SearchFragment"
+        android:label="SearchFragment" />
+</navigation>

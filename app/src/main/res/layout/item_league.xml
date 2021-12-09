@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="league"
+            type="us.reachmobi.sportapp.data.model.League" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="5dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:background="@color/background_gray_color"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="3dp"
+        app:cardMaxElevation="5dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+
+            <ImageView
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_gravity="center_horizontal"
+                tools:src="@drawable/example_logo_league"
+                setUrlImage="@{league.imageUrl}"
+                android:padding="@dimen/spacing_small"/>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="120dp"
+                android:layout_height="wrap_content"
+                android:layout_margin="@dimen/text_margin"
+                android:gravity="center_horizontal">
+
+                <TextView
+                    android:id="@+id/guideline"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:fontFamily="@font/roboto"
+                    android:gravity="start"
+                    android:maxLines="2"
+                    android:text="\n"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textSize="@dimen/font_large_dp" />
+                <TextView
+                    android:id="@+id/item_number"
+                    android:layout_width="120dp"
+                    android:layout_height="match_parent"
+                    android:ellipsize="end"
+                    android:gravity="center"
+                    android:maxLines="2"
+                    android:text="@{league.strLeague}"
+                    tools:text="@string/example_league_name"
+                    android:textAppearance="?attr/textAppearanceListItem"
+                    android:textSize="@dimen/font_large_dp"
+                    android:fontFamily="@font/roboto" />
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

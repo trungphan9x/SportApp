@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="teamSearch"
+            type="us.reachmobi.sportapp.data.model.SearchTeamSingle" />
+
+        <variable
+            name="team"
+            type="us.reachmobi.sportapp.data.model.Team" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp"
+        android:foreground="?attr/selectableItemBackground"
+        android:padding="8dp"
+        app:cardCornerRadius="10dp"
+        app:cardElevation="4dp">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="12dp">
+
+            <ImageView
+                android:id="@+id/iv_badge"
+                android:layout_width="128dp"
+                android:layout_height="128dp"
+                android:scaleType="fitCenter"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                setUrlImage="@{team.strTeamBadge}"
+                tools:src="@drawable/example_logo_league" />
+
+            <TextView
+                android:id="@+id/tv_name"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{team.strTeam}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_badge"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Arsenal" />
+
+            <TextView
+                android:id="@+id/tv_country"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="8dp"
+                android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+                android:text="@{team.strCountry}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_badge"
+                app:layout_constraintTop_toBottomOf="@id/tv_name"
+                tools:text="England" />
+
+            <TextView
+                android:id="@+id/tv_stadium"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
+                android:text="@{team.strStadium}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintBottom_toTopOf="@+id/tv_stadium_location"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_badge"
+                app:layout_constraintTop_toBottomOf="@id/tv_country"
+                tools:text="Jalak Harupat" />
+
+            <TextView
+                android:id="@+id/tv_stadium_location"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="@{team.strStadiumLocation}"
+                android:textAppearance="@style/TextAppearance.AppCompat.Small"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/iv_badge"
+                app:layout_constraintTop_toBottomOf="@id/tv_stadium"
+                tools:text="Soreang, Bandung" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>

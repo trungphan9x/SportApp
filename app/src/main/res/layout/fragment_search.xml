@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+        <variable
+            name="vm"
+            type="us.reachmobi.sportapp.ui.fragment.search.SearchViewModel" />
+    </data>
+
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/appbar_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true"
+            app:elevation="0dp">
+
+
+            <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                app:contentInsetStart="0dp"
+                app:contentInsetLeft="0dp"
+                app:layout_collapseMode="pin"
+                app:layout_scrollFlags="noScroll|enterAlwaysCollapsed">
+                <androidx.appcompat.widget.AppCompatImageButton
+                    android:id="@+id/ivLeft"
+                    android:layout_width="@dimen/action_bar_icon_size"
+                    android:layout_height="@dimen/action_bar_icon_size"
+                    android:layout_centerVertical="true"
+                    android:background="@drawable/round_button"
+                    android:padding="@dimen/spacing_small"
+                    android:layout_marginStart="@dimen/spacing_small"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:srcCompat="@drawable/ic_back" />
+                <SearchView
+                    android:id="@+id/searchView"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:actionViewClass="com.actionbarsherlock.widget.SearchView"
+                    android:backgroundTint="@color/white"
+                    android:layoutDirection="rtl"
+                    android:textCursorDrawable="@null"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    app:queryBackground="@null"
+                    app:searchIcon="@drawable/ic_search"
+                    tools:visibility="visible" />
+            </androidx.appcompat.widget.Toolbar>
+        </com.google.android.material.appbar.AppBarLayout>
+
+
+        <androidx.core.widget.NestedScrollView
+            android:id="@+id/nested_sv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:fillViewport="true"
+            app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical"
+                android:fitsSystemWindows="true"
+                android:paddingTop="@dimen/spacing_normal">
+
+                <ProgressBar
+                    android:id="@+id/progressbar"
+                    style="?android:attr/progressBarStyle"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:visibility="@{vm.loading ? View.VISIBLE : View.GONE}"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/rv_team"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/spacing_normal"
+                    android:layout_marginRight="@dimen/spacing_normal"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    tools:listitem="@layout/item_team"
+                    android:visibility="@{!vm.loading ? View.VISIBLE : View.GONE}"/>
+            </LinearLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+</layout>

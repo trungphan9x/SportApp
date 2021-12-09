@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">SportApp</string>
+    <string name="example_league_name">American Mayor League Soccer</string>
+
+    <string name="formed_year">Formed Year</string>
+    <string name="description">Description</string>
+    <string name="website">Website</string>
+    <string name="facebook">Facebook</string>
+    <string name="twitter">Twitter</string>
+    <string name="youtube">Youtube</string>
+    <string name="year_founded">Year Founded: %s</string>
+    <string name="search_default_value">Search for teams</string>
+    <string name="my_league">My Leagues</string>
+    <string name="example_match_title">Montpellier vs Clermont Foot</string>
+    <string name="example_date_time">27/12/21</string>
+    <string name="example_score">1</string>
+    <string name="example_home_team">Home</string>
+    <string name="example_away_team">Away</string>
+</resources>
